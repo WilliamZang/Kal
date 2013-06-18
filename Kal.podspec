@@ -25,8 +25,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   s.author       = { "Keith Lazuka" => "klazuka@gmail.com" }
   s.source       = { :git => "https://github.com/klazuka/Kal.git", :tag => "1.0rc1" }
   s.platform     = :ios, '4.0'
-  s.source_files = 'Kal/*.{h,m}'
-  s.resources    = "Kal/*.png"
+  s.source_files = 'src/*.{h,m}'
+  s.resources    = "src/Kal.bundle/*.png"
   s.framework    = 'UIKit'
   s.requires_arc = false
 end
