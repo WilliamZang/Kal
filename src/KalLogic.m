@@ -47,7 +47,7 @@
 
 - (void)moveToMonthForDate:(NSDate *)date
 {
-  self.baseDate = date;
+  self.baseDate = [date cc_dateByMovingToFirstDayOfTheMonth];
   [self recalculateVisibleDays];
 }
 

@@ -190,7 +190,7 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
  [UIView setAnimationsEnabled:YES];
 }
 
-- (void)slide:(int)direction
+- (void)slide:(int)direction andSelecteDate:(NSDate *)date
 {
   transitioning = YES;
   
@@ -207,12 +207,19 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
                  || (direction == SLIDE_DOWN && [logic.daysInFirstWeekOfFollowingMonth count] > 0);
   
   [self swapMonthsAndSlide:direction keepOneRow:keepOneRow];
-  
-  self.selectedTile = [frontMonthView firstTileOfMonth];
+    if (date) {
+        self.selectedTile = [frontMonthView tileForDate:[KalDate dateFromNSDate:date]];
+    } else {
+        self.selectedTile = [frontMonthView firstTileOfMonth];
+    }
 }
 
-- (void)slideUp { [self slide:SLIDE_UP]; }
-- (void)slideDown { [self slide:SLIDE_DOWN]; }
+- (void)slideUp { [self slide:SLIDE_UP andSelecteDate:nil]; }
+- (void)slideDown { [self slide:SLIDE_DOWN andSelecteDate:nil]; }
+
+
+- (void)slideUpShowDate:(NSDate *)date { [self slide:SLIDE_UP andSelecteDate:date]; }
+- (void)slideDownShowDate:(NSDate *)date { [self slide:SLIDE_DOWN andSelecteDate:date]; }
 
 - (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
 {
@@ -237,7 +244,7 @@ static NSString *kSlideAnimationId = @"KalSwitchMonths";
 
 - (void)jumpToSelectedMonth
 {
-  [self slide:SLIDE_NONE];
+  [self slide:SLIDE_NONE andSelecteDate:nil];
 }
 
 - (void)markTilesForDates:(NSArray *)dates { [frontMonthView markTilesForDates:dates]; }

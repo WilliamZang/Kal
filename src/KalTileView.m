@@ -61,13 +61,13 @@ extern const CGSize kTileSize;
   }
   
     if (flags.marked){
-        markerImage = [UIImage imageNamed:@"mark"];
+        markerImage = [UIImage imageNamed:@"Kal.bundle/mark.png"];
         
         NSDate *today = [NSDate date];
         if ([today compare:[date NSDate]] == NSOrderedDescending ) {
             int dis = abs([date NSDate].timeIntervalSinceNow);
             if (dis > 24*60*60) {
-                markerImage = [UIImage imageNamed:@"mark_gray"];
+                markerImage = [UIImage imageNamed:@"Kal.bundle/mark_gray.png"];
             }
         }
         [markerImage drawAtPoint:CGPointMake(5, 2)];

@@ -42,6 +42,12 @@
   return [[[NSCalendar myCalendar] dateByAddingComponents:c toDate:self options:0] cc_dateByMovingToFirstDayOfTheMonth];  
 }
 
+- (NSDate *)cc_dateByMovingToEndDayOfThePreviousMonth
+{
+    NSDate *firstDayOfTheMonth = [self cc_dateByMovingToFirstDayOfTheMonth];
+    return [firstDayOfTheMonth dateByAddingTimeInterval:-1];
+}
+
 - (NSDate *)cc_dateByMovingToFirstDayOfTheFollowingMonth
 {
   NSDateComponents *c = [[[NSDateComponents alloc] init] autorelease];
@@ -49,6 +55,13 @@
   return [[[NSCalendar myCalendar] dateByAddingComponents:c toDate:self options:0] cc_dateByMovingToFirstDayOfTheMonth];
 }
 
+- (NSDate *)cc_dateByMovingToEndDayOfTheFollowingMonth
+{
+    NSDateComponents *c = [[[NSDateComponents alloc] init] autorelease];
+    c.month = 2;
+    NSDate *firstDayOfTheMonthAfterNext = [[NSCalendar myCalendar] dateByAddingComponents:c toDate:self options:0];
+    return [firstDayOfTheMonthAfterNext dateByAddingTimeInterval:-1];
+}
 - (NSDateComponents *)cc_componentsForMonthDayAndYear
 {
   return [[NSCalendar myCalendar] components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self];

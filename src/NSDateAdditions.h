@@ -14,7 +14,9 @@
 - (NSDate *)cc_dateByMovingToEndOfDay;
 - (NSDate *)cc_dateByMovingToFirstDayOfTheMonth;
 - (NSDate *)cc_dateByMovingToFirstDayOfThePreviousMonth;
+- (NSDate *)cc_dateByMovingToEndDayOfThePreviousMonth;
 - (NSDate *)cc_dateByMovingToFirstDayOfTheFollowingMonth;
+- (NSDate *)cc_dateByMovingToEndDayOfTheFollowingMonth;
 - (NSDateComponents *)cc_componentsForMonthDayAndYear;
 - (NSUInteger)cc_weekday;
 - (NSUInteger)cc_numberOfDaysInMonth;

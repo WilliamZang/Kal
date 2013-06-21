@@ -59,8 +59,8 @@
 
 // These 3 methods are exposed for the delegate. They should be called 
 // *after* the KalLogic has moved to the month specified by the user.
-- (void)slideDown;
-- (void)slideUp;
+- (void)slideDown:(NSDate *)date;
+- (void)slideUp:(NSDate *)date;
 - (void)jumpToSelectedMonth;    // change months without animation (i.e. when directly switching to "Today")
 
 @end

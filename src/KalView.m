@@ -67,8 +67,8 @@ static const CGFloat kMonthLabelHeight = 17.f;
 
 - (void)redrawEntireMonth { [self jumpToSelectedMonth]; }
 
-- (void)slideDown { [gridView slideDown]; }
-- (void)slideUp { [gridView slideUp]; }
+- (void)slideDown:(NSDate *)date { [gridView slideDownShowDate:date]; }
+- (void)slideUp:(NSDate *)date { [gridView slideUpShowDate:date]; }
 
 - (void)showPreviousMonth
 {
@@ -143,7 +143,7 @@ static const CGFloat kMonthLabelHeight = 17.f;
   // Add column labels for each weekday (adjusting based on the current locale's first weekday)
   NSArray *weekdayNames = [[[[NSDateFormatter alloc] init] autorelease] shortWeekdaySymbols];
   NSArray *fullWeekdayNames = [[[[NSDateFormatter alloc] init] autorelease] standaloneWeekdaySymbols];
-  NSUInteger firstWeekday = [[NSCalendar currentCalendar] firstWeekday];
+  NSUInteger firstWeekday = [[NSCalendar myCalendar] firstWeekday];
   NSUInteger i = firstWeekday - 1;
   for (CGFloat xOffset = 0.f; xOffset < headerView.width; xOffset += 46.f, i = (i+1)%7) {
     CGRect weekdayFrame = CGRectMake(xOffset, 30.f, 46.f, kHeaderHeight - 29.f);

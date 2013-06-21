@@ -49,7 +49,10 @@
 {
   // do nothing
 }
-
+- (NSDate *)defaultDateForMonthFrom:(NSDate *)fromDate to:(NSDate *)toDate
+{
+    //do nothing
+}
 - (void)removeAllItems
 {
   // do nothing

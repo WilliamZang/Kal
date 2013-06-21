@@ -40,6 +40,9 @@
 // has moved to the previous or following month.
 - (void)slideUp;
 - (void)slideDown;
+- (void)slideUpShowDate:(NSDate *)date;
+- (void)slideDownShowDate:(NSDate *)date;
+
 - (void)jumpToSelectedMonth;    // see comment on KalView
 
 @end
